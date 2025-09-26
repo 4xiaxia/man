@@ -1,0 +1,279 @@
+/* FontAwesome 主题配色 - 与项目设计系统匹配 */
+
+/* 基础图标样式 */
+.fa-icon {
+  transition: all 0.2s ease-in-out;
+}
+
+/* 主题色彩类 */
+.fa-primary {
+  color: hsl(var(--primary));
+}
+
+.fa-secondary {
+  color: hsl(var(--secondary));
+}
+
+.fa-accent {
+  color: hsl(var(--accent));
+}
+
+.fa-muted {
+  color: hsl(var(--muted-foreground));
+}
+
+.fa-destructive {
+  color: hsl(var(--destructive));
+}
+
+/* 悬停效果 */
+.fa-icon:hover.fa-primary {
+  color: hsl(var(--primary) / 0.8);
+}
+
+.fa-icon:hover.fa-secondary {
+  color: hsl(var(--secondary) / 0.8);
+}
+
+.fa-icon:hover.fa-accent {
+  color: hsl(var(--accent) / 0.8);
+}
+
+.fa-icon:hover.fa-muted {
+  color: hsl(var(--muted-foreground) / 0.8);
+}
+
+/* 尺寸类 */
+.fa-xs {
+  font-size: 0.75rem;
+}
+
+.fa-sm {
+  font-size: 0.875rem;
+}
+
+.fa-lg {
+  font-size: 1.25rem;
+}
+
+.fa-xl {
+  font-size: 1.5rem;
+}
+
+.fa-2xl {
+  font-size: 2rem;
+}
+
+.fa-3xl {
+  font-size: 3rem;
+}
+
+/* 特殊效果 */
+.fa-glow {
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.fa-soft-shadow {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* 渐变图标效果 */
+.fa-gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fa-gradient-secondary {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--secondary)),
+    hsl(var(--primary))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 导航图标特殊样式 */
+.nav-icon {
+  @apply fa-icon fa-muted transition-colors duration-200;
+}
+
+.nav-icon.active {
+  @apply fa-primary;
+}
+
+.nav-icon:hover {
+  @apply fa-accent;
+}
+
+/* 按钮图标样式 */
+.btn-icon {
+  @apply fa-icon transition-transform duration-200;
+}
+
+.btn-icon:hover {
+  transform: scale(1.1);
+}
+
+/* 状态图标样式 */
+.status-icon {
+  @apply fa-icon;
+}
+
+.status-icon.success {
+  @apply fa-secondary;
+}
+
+.status-icon.error {
+  @apply fa-destructive;
+}
+
+.status-icon.warning {
+  color: hsl(43, 74%, 66%); /* 使用chart-4颜色作为警告色 */
+}
+
+.status-icon.info {
+  @apply fa-primary;
+}
+
+/* 加载动画增强 */
+.fa-spin {
+  animation: fa-spin 1s infinite linear;
+}
+
+.fa-pulse {
+  animation: fa-pulse 1s infinite steps(8);
+}
+
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fa-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 深色模式适配 */
+.dark .fa-icon {
+  /* 深色模式下的图标调整 */
+}
+
+.dark .fa-muted {
+  color: hsl(var(--muted-foreground));
+}
+
+/* 响应式图标尺寸 */
+@media (max-width: 640px) {
+  .fa-responsive {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .fa-responsive {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .fa-responsive {
+    font-size: 1.5rem;
+  }
+}
+
+/* 图标组合样式 */
+.icon-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-group .fa-icon {
+  flex-shrink: 0;
+}
+
+/* 特殊场景图标样式 */
+.card-icon {
+  @apply fa-icon fa-2xl fa-primary mb-4;
+}
+
+.feature-icon {
+  @apply fa-icon fa-xl fa-accent;
+}
+
+.menu-icon {
+  @apply fa-icon fa-lg fa-muted;
+}
+
+/* 图标背景圆形 */
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: hsl(var(--accent) / 0.1);
+}
+
+.icon-circle .fa-icon {
+  @apply fa-accent;
+}
+
+/* 图标徽章 */
+.icon-badge {
+  position: relative;
+}
+
+.icon-badge::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: hsl(var(--destructive));
+  border-radius: 50%;
+  border: 2px solid hsl(var(--background));
+}
+
+/* 尺寸类 */
+.fa-xs {
+  font-size: 0.75rem;
+}
+
+.fa-sm {
+  font-size: 0.875rem;
+}
+
+.fa-lg {
+  font-size: 1.25rem;
+}
+
+.fa-xl {
+  font-size: 1.5rem;
+}
+
+.fa-2xl {
+  font-size: 2rem;
+}
+
+.fa-3xl {
+  font-size: 3rem;
+}

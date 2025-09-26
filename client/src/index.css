@@ -1,0 +1,317 @@
+/* 引入 Tailwind 基础样式 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 40% 95%;
+    /* baby blue */
+    --foreground: 220 10% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 10% 20%;
+    --primary: 250 60% 70%;
+    /* lavender */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 150 50% 90%;
+    /* mint green */
+    --secondary-foreground: 150 30% 20%;
+    --muted: 220 20% 90%;
+    --muted-foreground: 220 10% 40%;
+    --accent: 250 60% 95%;
+    --accent-foreground: 250 60% 30%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 20% 85%;
+    --input: 220 20% 85%;
+    --ring: 250 60% 70%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 1.8rem;
+    /* 24px */
+  }
+
+  .dark {
+    --background: 220 10% 10%;
+    --foreground: 220 20% 90%;
+    --card: 220 10% 15%;
+    --card-foreground: 220 20% 90%;
+    --popover: 220 10% 15%;
+    --popover-foreground: 220 20% 90%;
+    --primary: 250 60% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 150 40% 20%;
+    --secondary-foreground: 150 50% 90%;
+    --muted: 220 10% 25%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 250 60% 25%;
+    --accent-foreground: 250 60% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 10% 30%;
+    --input: 220 10% 30%;
+    --ring: 250 60% 60%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue",
+      Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 2400px;
+    margin: 0 auto;
+    padding: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    #root {
+      width: 98%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    #root {
+      width: 96%;
+      padding: 4rem;
+    }
+  }
+
+  /* 全局 h1-h3 左对齐 */
+  h1,
+  h2,
+  h3 {
+    text-align: left;
+  }
+  h1,
+  h2 {
+    @apply font-bold;
+  }
+}
+
+/* 隐藏滚动条 */
+@layer utilities {
+  .scrollbar-hide {
+    /* 隐藏Chrome、Safari和Opera的滚动条 */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox - 现代浏览器支持 */
+  }
+
+  /* 为不支持scrollbar-width的浏览器提供fallback */
+  @supports not (scrollbar-width: none) {
+    .scrollbar-hide {
+      overflow: hidden; /* 使用标准的 overflow: hidden 替代已废弃的 -moz-scrollbars-none */
+      /* 旧版Firefox */
+    }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 自定义工具类和组件样式 */
+
+/* 隐藏滚动条（跨浏览器） */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 统一隐藏滚动条：同时支持 Chrome/Safari/Firefox */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Claymorphism card / badge 等现有样式保留在原文件中，以下仅追加瀑布流辅助类 */
+
+/* Masonry helpers */
+.break-inside-avoid {
+  break-inside: avoid;
+  /* 兼容性扩展 */
+  page-break-inside: avoid; /* 旧版打印/分页 */
+  -webkit-column-break-inside: avoid; /* Safari 旧版 */
+  column-break-inside: avoid; /* 多列布局 */
+}
+
+/* HomePage 相关样式（保留原有定义） */
+/* 这里不做改动，避免影响现有风格 */
+
+/* === 新增：统一排版与图标风格 === */
+@layer components {
+  /* 统一 lucide 图标的默认描边和颜色（可被类覆盖） */
+  svg.lucide {
+    stroke-width: 1.75;
+    color: currentColor;
+  }
+
+  /* 标准化图标尺寸工具类 */
+  .icon-sm {
+    @apply w-4 h-4;
+  }
+  .icon {
+    @apply w-5 h-5;
+  }
+  .icon-lg {
+    @apply w-6 h-6;
+  }
+
+  /* 统一字体层级工具类（便于在组件中一致使用） */
+  .text-ui-xs {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+  }
+  .text-ui-sm {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+  .text-ui-base {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+  .text-ui-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  .text-ui-xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .clay-card {
+    border-radius: 26px;
+    box-shadow:
+      35px 35px 68px 0px rgba(145, 192, 255, 0.06),
+      inset -8px -8px 16px 0px rgba(255, 255, 255, 0.6),
+      inset 0px 11px 28px 0px rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .clay-badge {
+    border-radius: 9999px;
+    padding: 0.125rem 0.5rem;
+    font-weight: 600;
+    box-shadow:
+      4px 6px 14px rgba(0, 0, 0, 0.04),
+      inset 0px 6px 10px rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+  }
+
+  .clay-iframe {
+    border-radius: 26px;
+    box-shadow:
+      inset -8px -8px 16px rgba(255, 255, 255, 0.6),
+      35px 35px 68px rgba(145, 192, 255, 0.06);
+    overflow: hidden;
+    transform: scale(0.75);
+    transform-origin: 0 0;
+    width: 133.33%;
+    height: 133.33%;
+  }
+
+  /* 修复内联样式问题 */
+  .min-width-zero {
+    min-width: 0;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ / 旧版 Edge */
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    /* Chrome/Safari */
+    display: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  /* HomePage 样式 */
+  .home-item-card {
+    border-radius: 12px;
+  }
+
+  .tag-icon-recommended {
+    background: #ffecec;
+  }
+
+  .tag-icon-free {
+    background: #e8f7ef;
+  }
+
+  .tag-icon-hot {
+    background: #fff7e6;
+  }
+
+  .tag-badge-recommended {
+    background: #f4e9fb;
+    color: #9d8df1;
+  }
+
+  .tag-badge-free {
+    background: #e8f7ef;
+    color: #65c18c;
+  }
+
+  .tag-badge-hot {
+    background: #fff7e6;
+    color: #e9a13c;
+  }
+}
+
+.clay-iframe-container {
+  overflow: hidden;
+}
+
+.clay-iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Add scrollbar hiding for iframe content if possible */
+.clay-iframe-container iframe html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.clay-iframe-container iframe html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
