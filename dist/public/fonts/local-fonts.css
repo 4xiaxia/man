@@ -1,0 +1,56 @@
+/* 本地化字体方案 - 替代外部字体服务 */
+
+/* 975Maru SC 字体的本地替代方案 */
+@font-face {
+  font-family: "975Maru SC";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  /* 使用本地系统字体作为fallback */
+  src:
+    local("PingFang SC Light"), local("Microsoft YaHei Light"),
+    local("Hiragino Sans GB"), local("Source Han Sans SC"),
+    local("Noto Sans CJK SC"), local("WenQuanYi Micro Hei"), local("SimHei"),
+    local("Arial Unicode MS"), local("sans-serif");
+}
+
+@font-face {
+  font-family: "975Maru SC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("PingFang SC Regular"), local("Microsoft YaHei"),
+    local("Hiragino Sans GB"), local("Source Han Sans SC"),
+    local("Noto Sans CJK SC"), local("WenQuanYi Micro Hei"), local("SimHei"),
+    local("Arial Unicode MS"), local("sans-serif");
+}
+
+@font-face {
+  font-family: "975Maru SC";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    local("PingFang SC Medium"), local("Microsoft YaHei Bold"),
+    local("Hiragino Sans GB"), local("Source Han Sans SC"),
+    local("Noto Sans CJK SC"), local("WenQuanYi Micro Hei"), local("SimHei"),
+    local("Arial Unicode MS"), local("sans-serif");
+}
+
+/* 通用字体栈定义 */
+.font-maru {
+  font-family:
+    "975Maru SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB",
+    "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "SimHei",
+    "Arial Unicode MS", sans-serif;
+}
+
+/* 为body元素提供默认字体 */
+body {
+  font-family:
+    "975Maru SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB",
+    "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "SimHei",
+    "Arial Unicode MS", sans-serif;
+  font-weight: 300;
+}
